@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         mLifecycleDisplay = (TextView) findViewById(R.id.tv_lifecycle_events_display);
 
         if (savedInstanceState != null) {
-            mCounter = savedInstanceState.getInt(STATE_COUNTER, 0);
+            mLifecycleDisplay.setText(mCounter);
         }
 
         // TODO (1) Use logAndAppend within onCreate
@@ -98,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
     // TODO (8) Figure out and implement how to save text displayed after rotating the device
         //hint onSaveInstanceState
     private static final String STATE_COUNTER = "counter";
-    private int mCounter;
+    private String mCounter;
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(STATE_COUNTER, mCounter);
+        mCounter = mLifecycleDisplay.getText().toString;
     }
 
     /**
